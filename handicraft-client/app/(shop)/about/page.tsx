@@ -35,7 +35,7 @@ export default function About() {
           </div>
           <div className="relative">
             <div className="aspect-square rounded-[3rem] overflow-hidden rotate-3 hover:rotate-0 transition-transform duration-700 shadow-2xl">
-              <img src="https://picsum.photos/seed/handicraft_shop/1000/1000" alt="Our Shop" className="w-full h-full object-cover" />
+              <img src="/images/hero_handicraft.png" alt="Our Shop" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
