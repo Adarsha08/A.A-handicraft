@@ -212,6 +212,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <a href='/admin'>admin</a>
     </div>
   )
 }
