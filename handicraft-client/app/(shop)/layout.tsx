@@ -1,0 +1,16 @@
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import WhatsAppFloating from '@/components/layout/WhatsAppFloting'
+
+export default function ShopLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <Navbar/>
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+      <WhatsAppFloating />
+    </>
+  )
+}
