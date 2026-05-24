@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import Image from 'next/image'
-import { ShoppingBag, Star, Eye, Heart } from 'lucide-react'
-import { Product } from '@/lib/types'
-import { useCart } from '@/context/CartContext'
-import { useWishlist } from '@/context/WishlistContext'
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import { ShoppingBag, Star, Eye, Heart } from "lucide-react";
+import { Product } from "@/lib/types";
+import { useCart } from "@/context/CartContext";
+import { useWishlist } from "@/context/WishlistContext";
 
 export default function ProductCard({ product }: { product: Product }) {
-  const { addToCart } = useCart()
-  const { toggleWishlist, isInWishlist } = useWishlist()
+  const { addToCart } = useCart();
+  const { toggleWishlist, isInWishlist } = useWishlist();
 
-  const isFavorited = isInWishlist(product.id)
+  const isFavorited = isInWishlist(product.id);
 
   return (
     <motion.div
@@ -30,21 +30,22 @@ export default function ProductCard({ product }: { product: Product }) {
         )}
 
         {/* Image */}
-        <Image
-          src={product.images[0]}
+        <img
+          src={product.image}
           alt={product.name}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
 
         {/* Wishlist Button */}
         <button
           onClick={() => toggleWishlist(product)}
           className={`absolute top-4 right-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-md ${
-            isFavorited ? 'bg-accent-red text-white' : 'bg-white/80 text-primary-brown hover:bg-white'
+            isFavorited
+              ? "bg-accent-red text-white"
+              : "bg-white/80 text-primary-brown hover:bg-white"
           }`}
         >
-          <Heart size={18} className={isFavorited ? 'fill-white' : ''} />
+          <Heart size={18} className={isFavorited ? "fill-white" : ""} />
         </button>
 
         {/* Hover Overlay */}
@@ -66,10 +67,14 @@ export default function ProductCard({ product }: { product: Product }) {
 
       <div className="space-y-1">
         <div className="flex justify-between items-start">
-          <p className="text-[10px] uppercase tracking-wider text-accent-gold font-bold">{product.category}</p>
+          <p className="text-[10px] uppercase tracking-wider text-accent-gold font-bold">
+            {product.category?.name}
+          </p>
           <div className="flex items-center text-[10px] text-primary-brown/60">
-            <Star size={10} className="fill-accent-gold text-accent-gold mr-1" />
-            <span>{product.rating}</span>
+            <Star
+              size={10}
+              className="fill-accent-gold text-accent-gold mr-1"
+            />
           </div>
         </div>
         <Link href={`/product/${product.id}`} className="block">
@@ -80,5 +85,5 @@ export default function ProductCard({ product }: { product: Product }) {
         <p className="text-sm font-bold text-accent-red">${product.price}</p>
       </div>
     </motion.div>
-  )
+  );
 }

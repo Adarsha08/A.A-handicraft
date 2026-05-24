@@ -7,11 +7,11 @@ const router = Router()
 
 // all routes below are protected
 router.use(protect) // attach once here, applies to all routes below
-
+//to create ,update and delete product
 router.post('/products', createProduct)
 router.put('/products/:id', updateProduct)
 router.delete('/products/:id', deleteProduct)
-
+//to create ,update and delete categories
 router.post('/categories', createCategory)
 router.put('/categories/:id', updateCategory)
 router.delete('/categories/:id', deleteCategory)

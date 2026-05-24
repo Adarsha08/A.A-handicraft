@@ -7,8 +7,7 @@ import {
 
 export const getAllProducts = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const categoryId = req.query.categoryId as string | undefined
-    const products = await getAllProductsService(categoryId)
+    const products = await getAllProductsService()
     return res.status(200).json(products)
   } catch (err) {
     next(err)

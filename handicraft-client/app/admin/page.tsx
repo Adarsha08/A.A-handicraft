@@ -12,9 +12,7 @@ import { CATEGORIES, MATERIALS, Product } from '@/lib/types'
 import { useProducts } from "@/hooks/fetchHooks"
 import {
   createProduct,
-  updateProduct,
-  deleteProduct
-} from "@/lib/services/shopServices"
+} from "@/lib/services/adminServices"
 
 interface AppSettings {
   whatsappNumber: string
